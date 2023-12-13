@@ -28,11 +28,15 @@ This tool is available in the following language:
 ```
 git clone https://github.com/CarlosDev314159/Web-Image-Downloader.git,
 ```
-**2. Install the dependencies:**
+**2. Navigate into the project directory:**
+```
+cd Web-Image-Downloader
+```
+**3. Install the dependencies:**
 ```
 pip install -r requirements.txt
 ```
-**3. Run the Script:**
+**4. Run the Script:**
 ```
 python3 app.py
 ```

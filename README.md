@@ -2,6 +2,8 @@
 
 Web Image Downloader is a simple, user-friendly tool written in Python that allows you to effortlessly download images from the web.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/CarlosDev314159/Web-Image-Downloader/blob/main/LICENSE)
+
 ## Features
 
 - Download multiple images at once by providing their URLs.

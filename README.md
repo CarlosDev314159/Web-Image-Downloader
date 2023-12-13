@@ -26,7 +26,7 @@ This tool is available in the following language:
 ## How to Install
 **1. Clone the repository:**
 ```
-git clone https://github.com/CarlosDev314159/Web-Image-Downloader.git,
+git clone https://github.com/CarlosDev314159/Web-Image-Downloader.git
 ```
 **2. Navigate into the project directory:**
 ```

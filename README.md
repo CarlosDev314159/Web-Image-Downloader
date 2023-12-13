@@ -33,7 +33,9 @@ git clone https://github.com/CarlosDev314159/Web-Image-Downloader.git,
 pip install -r requirements.txt
 ```
 **3. Run the Script:**
-```python3 app.py```
+```
+python3 app.py
+```
 
 
 Enjoy a hassle-free image downloading experience!

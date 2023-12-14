@@ -12,7 +12,7 @@ Web Image Downloader is a simple, user-friendly tool written in Python that allo
 
 ## Version
 
-Current version: 1.2.0
+Current version: 1.2.1
 
 ## Supported Languages
 

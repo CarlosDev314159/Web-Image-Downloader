@@ -31,27 +31,25 @@ user_agents = [
 ]
 
 
-def show_message(message, icon_path):
-    return sg.popup(message, icon=icon_path)
+def show_message(message):
+    return sg.popup(message)
 
 
 def download_image(link, path):
     try:
-        sg.popup_timed(
-            f"Downloading {link}", auto_close_duration=500)
+        show_message(f"Downloading {link}")
         response = requests.get(
             link, headers={'User-Agent': random.choice(user_agents)})
         if response.status_code == 200:
             with open(os.path.join(path, os.path.basename(link)), 'wb') as file:
                 file.write(response.content)
-            sg.popup_timed(f"Downloaded {link} with success in {path}",
-                           auto_close_duration=500)
+            show_message(f"Downloaded {link} with success in {path}")
         else:
-            sg.popup_error(
+            show_message(
                 f"Download failed!\nStatus code: {response.status_code}")
     except Exception as e:
-        sg.popup_error("Download failed!")
-        sg.popup_error(f"ERROR LOG: {e}")
+        show_message("Download failed!")
+        show_message(f"ERROR LOG: {e}")
 
 
 def main():
@@ -63,7 +61,7 @@ def main():
         [sg.Button('OK'), sg.Button('Exit'), sg.Button('Download All')],
     ]
 
-    window = sg.Window('Image Downloader', layout, icon=logo)
+    window = sg.Window('Image Downloader', layout)
 
     while True:
         event, values = window.read()
@@ -75,13 +73,13 @@ def main():
             if url == "0":
                 break
             elif url != "1" and url != "":
-                show_message(f"Added {url} to the list.", info_path)
+                show_message(f"Added {url} to the list.")
                 images.append(url)
                 window['-IN-'].update('')
             elif url == "1" and len(images) == 0:
-                show_message("No URL provided! Try again.", warning_path)
+                show_message("No URL provided! Try again.")
             elif url == "":
-                show_message("No URL provided! Try again.", warning_path)
+                show_message("No URL provided! Try again.")
             elif url == "1" and len(images) > 0:
                 path = sg.popup_get_folder('Where would you like to save?')
                 if path:
@@ -89,10 +87,10 @@ def main():
                     for image in images:
                         download_image(image, path)
                 else:
-                    show_message("No directory selected!", warning_path)
+                    show_message("No directory selected!")
                     break
         elif event == 'Download All' and len(images) == 0:
-            show_message("No URL provided! Try again.", warning_path)
+            show_message("No URL provided! Try again.")
         elif event == 'Download All' and len(images) > 0 and url != "":
             path = sg.popup_get_folder('Where would you like to save?')
             if path:
@@ -100,7 +98,7 @@ def main():
                 for image in images:
                     download_image(image, path)
             else:
-                show_message("No directory selected!", warning_path)
+                show_message("No directory selected!")
                 break
 
     window.close()
